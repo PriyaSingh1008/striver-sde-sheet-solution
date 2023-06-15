@@ -1,0 +1,27 @@
+
+int longestSubSeg(vector<int> &arr , int n, int k){
+    int l=0;
+        int r=0;
+        int ans=0;
+        int zero_count=0;
+        while (r<n){
+            if(zero_count<=k){
+                if(arr[r]==0){
+                    zero_count++;
+                }
+                r++;
+            }
+            if(zero_count>k){
+                if(arr[l]==0){
+                    zero_count--;
+                }
+                l++;
+            }
+                if((r-l)>ans){
+                    ans=r-l;
+                }
+            }
+            return ans;
+    // Write your code here.
+}
+problem link:https://www.codingninjas.com/codestudio/problems/maximum-consecutive-ones_8230736?challengeSlug=striver-sde-challenge&leftPanelTab=0
