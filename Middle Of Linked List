@@ -1,0 +1,15 @@
+
+Node *findMiddle(Node *head) {
+     Node* fast=head;
+       Node* slow=head;
+       while (fast != NULL && fast->next != NULL) {
+         slow = slow->next;
+         fast = fast->next->next;
+       }
+       return slow;
+
+
+
+    // Write your code here
+}
+link:https://www.codingninjas.com/codestudio/problems/middle-of-linked-list_8230764?challengeSlug=striver-sde-challenge&leftPanelTab=0
