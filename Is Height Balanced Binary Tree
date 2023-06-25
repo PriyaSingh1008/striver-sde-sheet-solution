@@ -1,0 +1,38 @@
+
+#include <bits/stdc++.h> 
+/*************************************************************
+ 
+    Following is the Binary Tree node structure
+
+    class BinaryTreeNode 
+    {
+    public : 
+        T data;
+        BinaryTreeNode<T> *left;
+        BinaryTreeNode<T> *right;
+
+        BinaryTreeNode(T data) {
+            this -> data = data;
+            left = NULL;
+            right = NULL;
+        }
+    };
+
+*************************************************************/
+ int f=1;
+int solve(BinaryTreeNode<int>* root){
+        if(!root){
+            return 0;
+        }
+        int l=solve(root->left);
+        int r=solve(root->right);
+        if(abs(l-r)>1) f=0;
+        return max(l,r)+1;
+    }
+bool isBalancedBT(BinaryTreeNode<int>* root) {
+    f=1;
+     solve(root);
+        return f;
+    // Write your code here.
+}
+code link:https://www.codingninjas.com/studio/problems/is-height-balanced-binary-tree_8230771?challengeSlug=striver-sde-challenge&leftPanelTab=0
