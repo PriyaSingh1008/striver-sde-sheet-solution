@@ -1,0 +1,43 @@
+
+/*****************************************************
+
+    Following is the Binary Tree node structure:
+    
+    class BinaryTreeNode {
+        public : 
+        T data;
+        BinaryTreeNode<T> *left;
+        BinaryTreeNode<T> *right;
+
+        BinaryTreeNode(T data) {
+            this -> data = data;
+            left = NULL;
+            right = NULL;
+        }
+        
+        ~BinaryTreeNode() {
+            if(left) 
+                delete left;
+            if(right) 
+                delete right;
+        }
+    };
+
+******************************************************/
+
+ bool ismirror(struct BinaryTreeNode<int>* root1, struct BinaryTreeNode<int>* root2){
+        if(root1==NULL&& root2==NULL){
+            return true;
+        }
+        if(root1&& root2 && root1->data==root2->data){
+            return ismirror(root1->left,root2->right)&&
+            ismirror(root1->right,root2->left);
+        }
+        return false;
+    }
+bool isSymmetric(BinaryTreeNode<int>* root)
+{
+     return ismirror(root,root);
+    // Write your code here.    
+}
+code link:https://www.codingninjas.com/studio/problems/symmetric-tree_8230686?challengeSlug=striver-sde-challenge&leftPanelTab=0
